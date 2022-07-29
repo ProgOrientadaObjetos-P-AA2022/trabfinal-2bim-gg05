@@ -17,12 +17,12 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
     private double costo_gigas;
     private double descuento;
 
-    public PlanPostPagoMinutosMegasEconomico(String nombrePro, String cedulaPro,
-            String ciudadPro, String marcaCelular, String modeloCelular, 
-            String numeroCelular, double m, double cm, double mg, double cg, 
+    public PlanPostPagoMinutosMegasEconomico(String nombre_Pro, String cedula_Pro,
+            String ciudad_Pro, String marca_Celular, String modelo_Celular, 
+            String numero_Celular, double m, double cm, double mg, double cg, 
             double d) {
-        super(nombrePro, cedulaPro, ciudadPro, marcaCelular, modeloCelular, 
-                numeroCelular);
+        super(nombre_Pro, cedula_Pro, ciudad_Pro, marca_Celular, modelo_Celular, 
+                numero_Celular);
         minutos = m;
         costo_minuto = cm;
         megas_gigas = mg;

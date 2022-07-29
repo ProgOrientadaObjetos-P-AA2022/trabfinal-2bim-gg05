@@ -22,7 +22,7 @@ public class BaseDatos {
     //Se coneccta a la base de datos...
     public void establecerConexion() {  
         try {
-            String url = "jdbc:sqlite:bd/planes.db.db";
+            String url = "jdbc:sqlite:bd/Datos.db";
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -39,11 +39,11 @@ public class BaseDatos {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
             String data = String.format("INSERT INTO planPostPagoMegas"
-                    + " (nombrePro,cedulaPro,ciudadPro,marcaCelular,"
-                    + "modeloCelular,numeroCelular, megasGg, costoGiga, "
-                    + "tarifaBase) "
+                    + " (nombre_Pro,cedula_Pro,ciudad_Pro,marca_Celular,"
+                    + "modelo_Celular,numero_Celular, megas_Giga, costoGiga, "
+                    + "tarifa_Base) "
                     + "values ('%s','%s','%s','%s','%s','%s', %s, %s, "
-                    + "%s)", 
+                    + "%s, %s)", 
                     plan.obtenerNombre_Pro(),
                     plan.obtenerCedula_Pro(),
                     plan.obtenerNumero_Celular(),
@@ -104,9 +104,9 @@ public class BaseDatos {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
             String data1 = String.format("INSERT INTO planPostPagoMinutos"
-                    + " (nombrePro, cedulaPro, ciudadPro, marcaCelular,"
-                    + "modeloCelular ,numeroCelular ,minutosNacionales,"
-                    + " costoMinutoNa, minutosInternacional, costoMinutoIn) "
+                    + " (nombre_Pro, cedula_Pro, ciudad_Pro, marca_Celular,"
+                    + "modelo_Celular ,numero_Celular ,minutos_nacionales,"
+                    + " costo_minutoNa, minutos_internacional, costo_minutoIn) "
                     + "values ('%s', '%s', '%s', '%s', '%s','%s', "
                     + "%s, %s,%s, %s)",
                     plan.obtenerNombre_Pro(),
@@ -135,7 +135,7 @@ public class BaseDatos {
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = "Select * from PlanPostPagoMinutos;";
+            String data = "Select * from planPostPagoMinutos;";
 
             ResultSet rs = statement.executeQuery(data);
             while (rs.next()) {
@@ -146,10 +146,10 @@ public class BaseDatos {
                         rs.getString("marca_Celular"),
                         rs.getString("modelo_Celular"),
                         rs.getString("numero_Celular"),
-                        rs.getDouble("minutos_Nacionales"),
-                        rs.getDouble("costoMinutoNa"),
-                        rs.getDouble("minutos_Internacional"),
-                        rs.getDouble("costoMinutoIn"));
+                        rs.getDouble("minutos_nacionales"),
+                        rs.getDouble("costo_minutoNa"),
+                        rs.getDouble("minutos_internacional"),
+                        rs.getDouble("costo_minutoIn"));
                 plan.pagoMensual();
                 listamin.add(plan);
             }
@@ -174,9 +174,9 @@ public class BaseDatos {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
             String data = String.format("INSERT INTO planPostPagoMinutos"
-                    + " (nombrePro,cedulaPro,ciudadPro,marcaCelular,"
-                    + "modeloCelular,numeroCelular, minutos, costoMinuto, "
-                    + "megasGigas, costoGigas) "
+                    + " (nombre_Pro,cedula_Pro,ciudad_Pro,marca_Celular,"
+                    + "modelo_Celular,numero_Celular, minutos, costo_Minuto, "
+                    + "megas_Gigas, costo_Gigas) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
                     + "'%s', %s, %s, %s, %s)",
                     plan.obtenerNombre_Pro(),
@@ -217,9 +217,9 @@ public class BaseDatos {
                         rs.getString("modelo_Celular"),
                         rs.getString("numero_Celular"),
                         rs.getDouble("minutos"),
-                        rs.getDouble("costoMinuto"),
+                        rs.getDouble("costo_Minuto"),
                         rs.getDouble("megas_Gigas"),
-                        rs.getDouble("costoGigas"));
+                        rs.getDouble("costo_Gigas"));
                 plan.pagoMensual();
                 listaminmeg.add(plan);
             }
@@ -243,10 +243,10 @@ public class BaseDatos {
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO planPostPagoMinutos"
-                    + " (nombrePro,cedulaPro,ciudadPro,marcaCelular,"
-                    + "modeloCelular,numeroCelular, costoMinuto, megasGb, costoGb, porcentajeDes, "
-                    + "costoMensual) "
+            String data = String.format("INSERT INTO PlanPostPagoMinutos"
+                    + " (nombre_Pro,cedula_Pro,ciudad_Pro,marca_Celular,"
+                    + "modelo_Celular,numero_Celular, costo_Minuto, megas_Giga, costo_Giga, porcentajeDes, "
+                    + "costo_Mensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s','%s', "
                     + "'%s', %s,%s, %s, %s)",
                     plan.obtenerNombre_Pro(),
@@ -291,7 +291,7 @@ public class BaseDatos {
                         rs.getString("modelo_Celular"),
                         rs.getString("numero_Celular"),
                         rs.getDouble("minutos"),
-                        rs.getDouble("costoMinuto"),
+                        rs.getDouble("costo_Minuto"),
                         rs.getDouble("megas_Gigas"),
                         rs.getDouble("costo_Gigas"),
                         rs.getDouble("descuento")        

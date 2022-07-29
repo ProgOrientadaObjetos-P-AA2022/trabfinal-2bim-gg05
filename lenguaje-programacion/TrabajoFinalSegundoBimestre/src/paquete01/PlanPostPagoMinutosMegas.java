@@ -16,11 +16,11 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     private double megas_gigas;
     private double costo_gigas;
 
-    public PlanPostPagoMinutosMegas(String nombrePro, String cedulaPro, 
-            String ciudadPro, String marcaCelular, String modeloCelular, 
-            String numeroCelular, double m, double cm, double mg, double cg) {
-        super(nombrePro, cedulaPro, ciudadPro, marcaCelular, modeloCelular, 
-                numeroCelular);
+    public PlanPostPagoMinutosMegas(String nombre_Pro, String cedula_Pro, 
+            String ciudad_Pro, String marca_Celular, String modelo_Celular, 
+            String numero_Celular, double m, double cm, double mg, double cg) {
+        super(nombre_Pro, cedula_Pro, ciudad_Pro, marca_Celular, modelo_Celular, 
+                numero_Celular);
         minutos = m;
         costo_minuto = cm;
         megas_gigas = mg;
@@ -67,11 +67,11 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     public String toString() {
         String c = String.format("\nPlan PostPago MinutosMegas\n"
                 + super.toString() + "\nFactura\n"
-                + "\tMinutos: %.2f\n"
-                + "\tCosto minuto : %.2f\n"
-                + "\tNumero de Megas (GB): %.2f\n"
-                + "\tCosto del GB: %.2f\n"
-                + "\tPago mensual: %.2f\n",
+                + "Minutos: %.2f\n"
+                + "Costo minuto : %.2f\n"
+                + "Numero de Megas (GB): %.2f\n"
+                + "Costo del GB: %.2f\n"
+                + "Pago mensual: %.2f\n",
                 obtenerMinutos(),
                 obtenerCosto_Minuto(),
                 obtenerMegas_Gigas(),
