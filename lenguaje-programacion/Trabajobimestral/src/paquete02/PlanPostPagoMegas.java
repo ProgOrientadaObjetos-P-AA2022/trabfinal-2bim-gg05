@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package paquete01;
+package paquete02;
 
 /**
  *
@@ -11,9 +11,9 @@ package paquete01;
 
 public class PlanPostPagoMegas extends PlanCelular{
     
-    private double megas_giga;
-    private double costo_giga;
-    private double tarifa_base;
+    private double megas_Gigas;
+    private double costo_Gigas;
+    private double tarifa_Base;
 
     //heredado de PlanCelular
     public PlanPostPagoMegas(String nombre_Pro, String cedula_Pro, 
@@ -21,34 +21,34 @@ public class PlanPostPagoMegas extends PlanCelular{
             String numero_Celular, double mg, double cg, double t) {
         super(nombre_Pro, cedula_Pro, ciudad_Pro, marca_Celular, modelo_Celular, 
                 numero_Celular);
-        megas_giga = mg;
-        costo_giga = cg;
-        tarifa_base = t;
+        megas_Gigas = mg;
+        costo_Gigas = cg;
+        tarifa_Base = t;
     }
     
-    public void estabelcerMegas_Giga(double m){
-        megas_giga = m;
+    public void estabelcerMegas_Gigas(double m){
+        megas_Gigas = m;
     }
-    public void establecerCosto_Giga(double c){
-        costo_giga = c;
+    public void establecerCosto_Gigas(double c){
+        costo_Gigas = c;
     }
     public void establecerTarifa_Base(double t){
-        tarifa_base = t;
+        tarifa_Base = t;
     }
     
-    public double obtenerMegas_Giga(){
-        return megas_giga;
+    public double obtenerMegas_Gigas(){
+        return megas_Gigas;
     }
-    public double obtenerCosto_Giga(){
-        return costo_giga;
+    public double obtenerCosto_Gigas(){
+        return costo_Gigas;
     }
     public double obtenerTarifa_Base(){
-        return tarifa_base;
+        return tarifa_Base;
     }
     
     @Override
-    public void pagoMensual() {
-        pagoMensual = (megas_giga * costo_giga) + tarifa_base;
+    public void Pago_Mensual() {
+        pago_Mensual = (megas_Gigas * costo_Gigas) + tarifa_Base;
     }
     
     @Override
@@ -59,10 +59,10 @@ public class PlanPostPagoMegas extends PlanCelular{
                 + "Costo del GB: %.2f\n"
                 + "Tarifa base: %.2f\n"
                 + "Pago mensual: %.2f\n",
-                obtenerMegas_Giga(), 
-                obtenerCosto_Giga(),
+                obtenerMegas_Gigas(), 
+                obtenerCosto_Gigas(),
                 obtenerTarifa_Base(),
-                obtenerPagoMensual()
+                obtenerPago_Mensual()
         );
         return c;
     }

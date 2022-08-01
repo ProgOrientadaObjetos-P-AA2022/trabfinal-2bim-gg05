@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package paquete01;
+package paquete02;
 
 /**
  *
@@ -11,61 +11,57 @@ package paquete01;
 
 public class PlanPostPagoMinutosMegas extends PlanCelular{
     
-    private double minutos;
-    private double costo_minuto;
-    private double megas_gigas;
-    private double costo_gigas;
+    private double Minutos;
+    private double Costo_Minuto;
+    private double Megas_Gigas;
+    private double Costo_Gigas;
 
-    public PlanPostPagoMinutosMegas(String nombre_Pro, String cedula_Pro, 
-            String ciudad_Pro, String marca_Celular, String modelo_Celular, 
-            String numero_Celular, double m, double cm, double mg, double cg) {
-        super(nombre_Pro, cedula_Pro, ciudad_Pro, marca_Celular, modelo_Celular, 
-                numero_Celular);
-        minutos = m;
-        costo_minuto = cm;
-        megas_gigas = mg;
-        costo_gigas = cg;
+    public PlanPostPagoMinutosMegas(String Nombre_Pro, String Cedula_Pro, 
+            String Ciudad_Pro, String Marca_Celular, String Modelo_Celular, 
+            String Numero_Celular, double m, double cm, double mg, double cg) {
+        super(Nombre_Pro, Cedula_Pro, Ciudad_Pro, Marca_Celular, Modelo_Celular, 
+                Numero_Celular);
+        Minutos = m;
+        Costo_Minuto = cm;
+        Megas_Gigas = mg;
+        Costo_Gigas = cg;
     }
     
     public void establecerMinutos(double m) {
-        minutos = m;
+        Minutos = m;
     }
     public void establecerCosto_Minuto(double cm) {
-        costo_minuto = cm;
+        Costo_Minuto = cm;
     }
     public void establecerMegas_Gigas(double mg) {
-        megas_gigas = mg;
+        Megas_Gigas = mg;
     }
     public void establecerCosto_Gigas(double cg) {
-        costo_gigas = cg;
+        Costo_Gigas = cg;
     }
 
     public double obtenerMinutos() {
-        return minutos;
+        return Minutos;
     }
     public double obtenerCosto_Minuto() {
-        return costo_minuto;
+        return Costo_Minuto;
     }
     public double obtenerMegas_Gigas() {
-        return megas_gigas;
+        return Megas_Gigas;
     }
     public double obtenerCosto_Gigas() {
-        return costo_gigas;
+        return Costo_Gigas;
     }
     
     
     @Override
-    public void pagoMensual(){
-        pagoMensual = (minutos * costo_minuto) + (megas_gigas * costo_gigas);
+    public void Pago_Mensual(){
+        pago_Mensual = (Minutos * Costo_Minuto) + (Megas_Gigas * Costo_Gigas);
     }                               
-    @Override
-    public double obtenerPagoMensual(){
-        return pagoMensual;
-    }
  
     @Override
     public String toString() {
-        String c = String.format("\nPlan PostPago MinutosMegas\n"
+        String c = String.format("\n-------Plan PostPago MinutosMegas-------\n"
                 + super.toString() + "\nFactura\n"
                 + "Minutos: %.2f\n"
                 + "Costo minuto : %.2f\n"
@@ -76,7 +72,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
                 obtenerCosto_Minuto(),
                 obtenerMegas_Gigas(),
                 obtenerCosto_Gigas(),
-                obtenerPagoMensual()
+                obtenerPago_Mensual()
         );
         return c;
     }

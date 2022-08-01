@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package paquete01;
+package paquete02;
 
 /**
  *
@@ -10,71 +10,67 @@ package paquete01;
  */
 
 public abstract class PlanCelular {
-    protected String nombre_pro;
-    protected String cedula_pro;
-    protected String ciudad_pro;
-    protected String marca_celular;//una cadena
-    protected String modelo_celular;//una cadena
-    protected String numero_celular;//una cadena
-    
-    protected double pagoMensual;//se debe operar en cada subclase, se lo optiene
+    protected String nombre_Pro;
+    protected String cedula_Pro;
+    protected String ciudad_Pro;
+    protected String marca_Celular;
+    protected String modelo_Celular;
+    protected String numero_Celular;
+    protected double pago_Mensual;//se debe operar en cada subclase, se lo optiene
                                //en cada clase...
 
     public PlanCelular(String n, String ce, String ci, 
-            String marca, String modelo, String num) {
-        nombre_pro = n;
-        cedula_pro = ce;
-        ciudad_pro = ci;
-        marca_celular = marca;
-        modelo_celular = modelo;
-        numero_celular = num;
+            String mc, String md, String num) {
+        nombre_Pro = n;
+        cedula_Pro = ce;
+        ciudad_Pro = ci;
+        marca_Celular = mc;
+        modelo_Celular = md;
+        numero_Celular = num;
     }
 
     public void establecerNombre_Pro(String n) {
-        nombre_pro = n;
+        nombre_Pro = n;
     }
     public void establecerCedula_Pro(String ce) {
-        cedula_pro = ce;
+        cedula_Pro = ce;
     }
     public void establecerCiudad_Pro(String ci) {
-        ciudad_pro = ci;
+        ciudad_Pro = ci;
     }
     public void establecerMarca_Celular(String mar) {
-        marca_celular = mar;
+        marca_Celular = mar;
     }
     public void establecerModelo_Celular(String mo) {
-        modelo_celular = mo;
+        modelo_Celular = mo;
     }
     public void establecerNumero_Celular(String nu) {
-        numero_celular = nu;
+        numero_Celular = nu;
     }
     
+    public abstract void Pago_Mensual();  
+                                        
     
-    public abstract void pagoMensual();  
-                                         /// se debe operar en cada subclase, 
-                                         /// se lo optiene en cada clase...
-    public double obtenerPagoMensual(){
-        return pagoMensual;
+    public double obtenerPago_Mensual(){
+        return pago_Mensual;
     }
-    
-    
     public String obtenerNombre_Pro() {
-        return nombre_pro;
+        return nombre_Pro;
     }
     public String obtenerCedula_Pro() {
-        return cedula_pro;
+        return ciudad_Pro;
     }
     public String obtenerCiudad_Pro() {
-        return ciudad_pro;
+        return ciudad_Pro;
     }
     public String obtenerMarca_Celular() {
-        return marca_celular;
+        return marca_Celular;
     }
     public String obtenerModelo_Celular() {
-        return modelo_celular;
+        return modelo_Celular;
     }
     public String obtenerNumero_Celular() {
-        return numero_celular;
+        return numero_Celular;
     }
     
     @Override

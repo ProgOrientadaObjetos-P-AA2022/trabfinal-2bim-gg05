@@ -1,12 +1,12 @@
- /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package paquete02;
+package paquete03;
 
-import Coneccion.BaseDatos;
+import paquete01.Enlace;
 import java.util.Scanner;
-import paquete01.*;
+import paquete02.*;
 
 /**
  *
@@ -18,24 +18,23 @@ public class Ejecutar {
         
         Scanner sc = new Scanner(System.in);
         
-        
-        BaseDatos c = new BaseDatos();
-        
-        int opc1;
-        int opc2;
-        int opc3;
-        boolean ojo = false;
+        Enlace c = new Enlace();
+
+        int op1;
+        int op2;
+        int op3;
+        boolean bandera = false;
         
         do {            
             try {
                 System.out.println("Que decea realizar..\n"
                         + "Ingresar tipo de plan celular              [1]\n"
-                        + "Consultar los tipos de planes celulares    [2]\n"
+                        + "Consultar los tipos de planes celulares    [2]"
                 );
-               opc1 = sc.nextInt();
+               op1 = sc.nextInt();
                sc.nextLine();
                
-               if(opc1 == 1){
+               if(op1 == 1){
                     System.out.printf("Segun el numero, indique que plan desea."
                             + "\n"
                             + "Plan Minutos                     [1]\n"
@@ -43,7 +42,7 @@ public class Ejecutar {
                             + "Plan Minutos-Megas               [3]\n"
                             + "Plan Minutos-Megas-Economico     [4]\n"
                     );
-                    opc2 = sc.nextInt();
+                    op2 = sc.nextInt();
                     sc.nextLine();
                     
                     System.out.println("Ingrese el nombres del Cliente");
@@ -59,9 +58,9 @@ public class Ejecutar {
                     System.out.println("Ingrese el numero celular del cliente");
                     String numeroC = sc.nextLine();
                     
-                    switch (opc2) {
+                    switch (op2) {
                        case 1:
-                           System.out.println("Ingrese la cantidad de minutos "
+                            System.out.println("Ingrese la cantidad de minutos "
                                     + "nacionales");
                             double mN = sc.nextDouble();
                             System.out.println("Ingrese el costo por minuto "
@@ -77,12 +76,12 @@ public class Ejecutar {
                             PlanPostPagoMinutos pMin = new PlanPostPagoMinutos(
                                     nombre, cedula, ciudad, marcaC, modeloC
                                     ,numeroC, mN, cN, mI, cI);
-                            pMin.pagoMensual();
+                            pMin.Pago_Mensual();
                             c.insertarPostPagoMinutos(pMin);
-                            
+                            sc.nextLine();
                            break;
                        case 2:
-                            System.out.println("Ingrese el Número de Megas (Gb):");
+                            System.out.println("Ingrese el Número de Megas :");
                             double nMegas = sc.nextDouble();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cGigas = sc.nextDouble();
@@ -92,17 +91,17 @@ public class Ejecutar {
                             PlanPostPagoMegas pMegas = new PlanPostPagoMegas(
                                     nombre, cedula, ciudad, marcaC, modeloC
                                     ,numeroC, nMegas, cGigas, tar);
-                            pMegas.pagoMensual();
+                            pMegas.Pago_Mensual();
                             
                             c.insertarPlanCelularPosPagoMegas(pMegas);
-                            
+                            sc.nextLine();
                            break;
                        case 3:
-                           System.out.println("Ingrese el Número de minutos:");
+                            System.out.println("Ingrese el Número de minutos:");
                             double min1 = sc.nextDouble();
                             System.out.println("Ingrese el Costo por minuto:");
                             double costo1 = sc.nextDouble();
-                            System.out.println("Ingrese el Número de Megas (Gb):");
+                            System.out.println("Ingrese el Número de Megas :");
                             double numGigas1 = sc.nextDouble();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosGigas1 = sc.nextDouble();
@@ -113,17 +112,17 @@ public class Ejecutar {
                                             modeloC, numeroC, min1, costo1, 
                                             numGigas1, cosGigas1);
                             
-                            pMinMegas.pagoMensual();
+                            pMinMegas.Pago_Mensual();
                             c.insertarPostPagoMinutosMegas(pMinMegas);
-                            
+                            sc.nextLine();
                            break;
                        case 4:
                            
-                           System.out.println("Ingrese el Número de minutos:");
+                            System.out.println("Ingrese el Número de minutos:");
                             double min2 = sc.nextDouble();
                             System.out.println("Ingrese el Costo por minuto:");
                             double costo2 = sc.nextDouble();
-                            System.out.println("Ingrese el Número de Megas (Gb):");
+                            System.out.println("Ingrese el Número de Megas :");
                             double numGigas2 = sc.nextDouble();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosGigas2 = sc.nextDouble();
@@ -136,22 +135,23 @@ public class Ejecutar {
                                             modeloC, numeroC, min2, costo2, 
                                             numGigas2, cosGigas2, des);
                             
-                            pMegasE.pagoMensual();
+                            pMegasE.Pago_Mensual();
                             c.insertarPostPagoMinutosMegasEc(pMegasE);
-                           
+                           sc.nextLine();
                            break;
                     }
-                }else if(opc1 == 2){
+                }else if(op1 == 2){
                     System.out.printf("Mostar Datos almacenados\n"
                             + "Plan Minutos                     [1]\n"
                             + "Plan Megas                       [2]\n"
                             + "Plan Minutos-Megas               [3]\n"
                             + "Plan Minutos-Megas-Economico     [4]\n"
+                            + "TODAS LAS TABLAS                 [5]\n"
                     );
-                    opc3 = sc.nextInt();
+                    op3 = sc.nextInt();
                     sc.nextLine();
                     
-                    switch (opc3) {
+                    switch (op3) {
                         case 1:
                                 for (int i = 0; i < 
                                         c.obtenerDataPostPagoMinutos().size();i++) {
@@ -174,17 +174,33 @@ public class Ejecutar {
                                     System.out.printf("%s",c.obtenerDataPostPagoMinutosMegasEc().get(i));
                                 }
                             break;
+                        case 5:
+                            for (int i = 0; i < c.obtenerDataPostPagoMinutosMegasEc().size();i++) {
+                                    System.out.printf("%s\n"
+                                            + "%s\n"
+                                            + "%s\n"
+                                            + "\n%s",
+                                            c.obtenerDataPostPagoMinutos().get(i),
+                                            c.obtenerDataPlanPostPagoMegas().get(i),
+                                            c.obtenerDataPostPagoMinutosMegas().get(i),
+                                            c.obtenerDataPostPagoMinutosMegasEc().get(i)
+                                    );
+                                }
+                            break;
                    }
                 }
             } catch (Exception e) {
                 System.out.println("Error. Ingrese una opcion validad.");
             }
-            sc.nextLine();
-            System.out.println("Ingrese la letra 'X' para salir.");
-            String salir = sc.nextLine().toUpperCase();
-            if(salir == "X"){
-                ojo = true;
-            }
-        } while (ojo == false);
+            
+            
+            System.out.println("Precione la letra 'S' para salir o "
+                    + "dijite otra tecla para continuar.");
+            char salir = sc.nextLine().toUpperCase().charAt(0);
+            if(salir ==  'S' ){
+                bandera = true;                     
+            }else
+                bandera = false;
+        } while (bandera == false);
     }
 }
