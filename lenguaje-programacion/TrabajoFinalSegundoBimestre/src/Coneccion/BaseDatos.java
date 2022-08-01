@@ -22,7 +22,7 @@ public class BaseDatos {
     //Se coneccta a la base de datos...
     public void establecerConexion() {  
         try {
-            String url = "jdbc:sqlite:bd/Datos.db";
+            String url = "jdbc:sqlite:bd/Datos.db.db";
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -40,10 +40,10 @@ public class BaseDatos {
             Statement statement = obtenerConexion().createStatement();
             String data = String.format("INSERT INTO planPostPagoMegas"
                     + " (nombre_Pro,cedula_Pro,ciudad_Pro,marca_Celular,"
-                    + "modelo_Celular,numero_Celular, megas_Giga, costoGiga, "
-                    + "tarifa_Base) "
+                    + "modelo_Celular,numero_Celular, megas_giga, costo_giga, "
+                    + "tarifa_base) "
                     + "values ('%s','%s','%s','%s','%s','%s', %s, %s, "
-                    + "%s, %s)", 
+                    + " %s)", 
                     plan.obtenerNombre_Pro(),
                     plan.obtenerCedula_Pro(),
                     plan.obtenerNumero_Celular(),
@@ -173,7 +173,7 @@ public class BaseDatos {
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO planPostPagoMinutos"
+            String data = String.format("INSERT INTO planPostPagoMinutosMegas"
                     + " (nombre_Pro,cedula_Pro,ciudad_Pro,marca_Celular,"
                     + "modelo_Celular,numero_Celular, minutos, costo_Minuto, "
                     + "megas_Gigas, costo_Gigas) "
@@ -243,10 +243,11 @@ public class BaseDatos {
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO PlanPostPagoMinutos"
+            String data = String.format("INSERT INTO postPagoMinutosMegas"
                     + " (nombre_Pro,cedula_Pro,ciudad_Pro,marca_Celular,"
-                    + "modelo_Celular,numero_Celular, costo_Minuto, megas_Giga, costo_Giga, porcentajeDes, "
-                    + "costo_Mensual) "
+                    + "modelo_Celular,numero_Celular, costo_Minuto, megas_Giga,"
+                    + "costo_Giga, porcentajeDes,  "
+                    + ""
                     + "values ('%s', '%s', '%s', '%s', '%s','%s', "
                     + "'%s', %s,%s, %s, %s)",
                     plan.obtenerNombre_Pro(),
